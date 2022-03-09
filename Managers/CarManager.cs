@@ -19,12 +19,19 @@ namespace opgave4.Managers
 
         public List<Car> GetAll()
         {
-            return new List<Car>(data);
+            if (data != null)
+            {
+                return new List<Car>(data);
+            }
+            else
+            {
+                throw new ArgumentNullException("Ingen data.");
+            }
         }
 
-        public Car GetById(int Id)
+        public Car GetById(int id)
         {
-            return data.Find(car => car.Id == Id);
+            return data.Find(car => car.Id == id);
         }
 
         public Car AddCar(Car newCar)
